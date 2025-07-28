@@ -1,0 +1,247 @@
+/* Basic body and container styling */
+body {
+    font-family: 'Inter', sans-serif; /* Using Inter font */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top to prevent content overflow */
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 20px; /* Add some padding for smaller screens */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+    color: #333;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 600px; /* Max width for desktop */
+    margin-top: 50px; /* Space from the top */
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #4CAF50; /* Green heading */
+    margin-bottom: 25px;
+    font-size: 2.2em;
+}
+
+/* Input section styling */
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+#todoInput {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Rounded corners for input */
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#todoInput:focus {
+    border-color: #007bff; /* Highlight on focus */
+}
+
+button {
+    background-color: #007bff; /* Blue button */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px; /* Rounded corners for buttons */
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* To-Do list styling */
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.todo-item:last-child {
+    margin-bottom: 0;
+}
+
+.todo-item.completed {
+    background-color: #e6ffe6; /* Lighter green for completed tasks */
+    text-decoration: line-through;
+    color: #777;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.todo-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-right: 15px; /* Space between content and buttons */
+}
+
+.task-text {
+    font-size: 1.1em;
+    font-weight: 500;
+    word-break: break-word; /* Break long words */
+}
+
+.task-datetime {
+    font-size: 0.85em;
+    color: #666;
+}
+
+.todo-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+}
+
+.todo-actions button {
+    padding: 8px 12px;
+    font-size: 0.9em;
+    border-radius: 6px;
+    box-shadow: none; /* Remove shadow for smaller buttons */
+    transition: background-color 0.2s ease;
+}
+
+.todo-actions .complete-btn {
+    background-color: #28a745; /* Green for complete */
+}
+.todo-actions .complete-btn:hover {
+    background-color: #218838;
+}
+
+.todo-actions .edit-btn {
+    background-color: #ffc107; /* Yellow for edit */
+    color: #333; /* Darker text for contrast */
+}
+.todo-actions .edit-btn:hover {
+    background-color: #e0a800;
+}
+
+.todo-actions .delete-btn {
+    background-color: #dc3545; /* Red for delete */
+}
+.todo-actions .delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Styling for edit mode inputs */
+.edit-mode .task-text,
+.edit-mode .task-datetime,
+.edit-mode .todo-actions {
+    display: none; /* Hide original elements in edit mode */
+}
+
+.edit-mode .edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+    width: 100%; /* Take full width in edit mode */
+}
+
+.edit-form input[type="text"],
+.edit-form input[type="date"],
+.edit-form input[type="time"] {
+    width: calc(100% - 20px); /* Adjust for padding */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95em;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.edit-form .save-btn,
+.edit-form .cancel-btn {
+    padding: 10px 15px;
+    font-size: 0.95em;
+    border-radius: 6px;
+    box-shadow: none;
+    margin-top: 5px; /* Space from inputs */
+}
+
+.edit-form .cancel-btn {
+    background-color: #6c757d; /* Grey for cancel */
+}
+.edit-form .cancel-btn:hover {
+    background-color: #5a6268;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .input-section {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #todoInput,
+    button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .todo-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .todo-content {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .todo-actions {
+        width: 100%;
+        justify-content: flex-end; /* Align buttons to the right */
+    }
+
+    .edit-form {
+        width: 100%;
+    }
+}
